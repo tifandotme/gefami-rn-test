@@ -1,4 +1,4 @@
-import gluestackPlugin from "@gluestack-ui/nativewind-utils/tailwind-plugin";
+import gluestackPlugin from "@gluestack-ui/nativewind-utils/tailwind-plugin"
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -195,4 +195,4 @@ module.exports = {
     },
   },
   plugins: [gluestackPlugin],
-};
+}

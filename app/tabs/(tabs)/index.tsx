@@ -1,9 +1,9 @@
-import { Center } from "@/components/ui/center";
-import { Divider } from "@/components/ui/divider";
-import { Heading } from "@/components/ui/heading";
-import { Text } from "@/components/ui/text";
-import { Button, ButtonText } from "@/components/ui/button";
-import { useState } from "react";
+import { Center } from "@/components/ui/center"
+import { Divider } from "@/components/ui/divider"
+import { Heading } from "@/components/ui/heading"
+import { Text } from "@/components/ui/text"
+import { Button, ButtonText } from "@/components/ui/button"
+import { useState } from "react"
 
 export default function Home() {
   const [data, setData] = useState([
@@ -11,13 +11,13 @@ export default function Home() {
     { id: 2, name: "Jane Smith", occupation: "UI/UX Designer", age: 32 },
     { id: 3, name: "Bob Johnson", occupation: "Project Manager", age: 45 },
     { id: 4, name: "Alice Brown", occupation: "Data Scientist", age: 30 },
-  ]);
+  ])
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const changeDisplayedPerson = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-  };
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length)
+  }
 
   return (
     <Center className="flex-1">
@@ -33,5 +33,5 @@ export default function Home() {
         <ButtonText>Show Next Person</ButtonText>
       </Button>
     </Center>
-  );
+  )
 }

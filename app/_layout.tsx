@@ -1,53 +1,53 @@
 // app/_layout.tsx
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome from "@expo/vector-icons/FontAwesome"
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
-} from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useState } from "react";
-import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
-import { useColorScheme } from "nativewind";
-import { Slot } from "expo-router";
+} from "@react-navigation/native"
+import { useFonts } from "expo-font"
+import * as SplashScreen from "expo-splash-screen"
+import { useEffect, useState } from "react"
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider"
+import { useColorScheme } from "nativewind"
+import { Slot } from "expo-router"
 
-import "../global.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "../global.css"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-export { ErrorBoundary } from "expo-router";
+export { ErrorBoundary } from "expo-router"
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
-  });
+  })
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
-    if (error) throw error;
-  }, [error]);
+    if (error) throw error
+  }, [error])
 
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      SplashScreen.hideAsync()
     }
-  }, [loaded]);
+  }, [loaded])
 
   if (!loaded) {
-    return null;
+    return null
   }
 
-  return <RootLayoutNav />;
+  return <RootLayoutNav />
 }
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function RootLayoutNav() {
-  const { colorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme()
 
   return (
     <GluestackUIProvider mode={colorScheme === "dark" ? "dark" : "light"}>
@@ -57,5 +57,5 @@ function RootLayoutNav() {
         </QueryClientProvider>
       </ThemeProvider>
     </GluestackUIProvider>
-  );
+  )
 }
