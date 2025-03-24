@@ -159,22 +159,6 @@ export default function Tab1() {
 
           }
         </Box>
-
-        {/* <Divider className="my-8 w-[80%]" />
-        <Button
-          action="secondary"
-          variant="outline"
-          size="sm"
-          onPress={toggleColorScheme}
-          className="mt-4"
-        >
-          <ButtonText>Toggle Theme</ButtonText>
-          {colorScheme === "dark" ? (
-            <SunIcon className="ml-2"  />
-          ) : (
-            <MoonIcon className="ml-2"/>
-          )}
-          </Button>  */}
       </Center>
     </KeyboardAvoidingView>
   )

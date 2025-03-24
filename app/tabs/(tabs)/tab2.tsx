@@ -160,8 +160,6 @@ export default function Tab2() {
             <Text className="italic text-sm text-typography-500 mt-2">
               Note: The 'body' field has been removed from each post object
             </Text>
-
-            <EditScreenInfo path="app/(app)/(tabs)/tab2.tsx" />
           </>
         }
       </Center>
