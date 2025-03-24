@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { ScrollView } from "react-native"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
-import EditScreenInfo from "@/components/EditScreenInfo"
 import { Center } from "@/components/ui/center"
 import { Divider } from "@/components/ui/divider"
 import { Heading } from "@/components/ui/heading"
@@ -71,7 +70,11 @@ export default function Tab2() {
     error,
   } = useQuery({
     queryKey: ["posts"],
-    queryFn: fetchPosts,
+    queryFn: async () => {
+      const data = await fetchPosts()
+      console.log("Original data:", data)
+      return data
+    },
     select: (data) => {
       return data.map(({ body, ...rest }: Post) => rest)
     },
